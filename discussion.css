@@ -144,7 +144,7 @@ body.layout-discussao #fim-screen
   position: absolute;
   top: 25%; /* ajuste aqui */
   left: 1.5%; /* ajuste aqui */
-  font-size: clamp(1px,3vh,24px);
+  font-size: clamp(4px,3.5vh,30px);
   width: 93%;
   color: whitesmoke;
   text-decoration: dotted;
