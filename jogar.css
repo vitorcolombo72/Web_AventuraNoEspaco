@@ -1,0 +1,79 @@
+body.layout-jogo #jogar-screen #canvas{
+    height: 90% !important;
+    width: 90% !important;
+    display: flex !important;
+    position: relative !important;
+    align-items: center;
+    justify-content: center;
+}
+body.layout-jogo #discussion-screen,
+body.layout-jogo #tela-inicial,
+body.layout-jogo #aprendizado-screen,
+body.layout-jogo #matrix-screen,
+body.layout-jogo #fim-screen{
+    display: none;
+}
+body.layout-jogo #jogar-screen{
+    display: flex;         /* Flexbox ativa */
+    justify-content: center;          /* Centraliza na horizontal */
+    align-items: center;              /* Centraliza na vertical */
+    height: 100vh; 
+}
+body.layout-jogo{
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("images/space.jpg");
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center center;
+}
+body.layout-jogo #h1-obj {
+    position: absolute; /* posição absoluta em relação ao body */
+    top: 10px;          /* distância do topo */
+    left: 10px;         /* distância da esquerda */
+    margin: 0;          /* remove margem padrão */
+    z-index: 10;        /* garante que fique por cima do canvas */
+    color: white;
+    font-size: 2vw;       /* texto branco para contraste */
+}
+body.layout-jogo #helpbutton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    margin: 0;
+    z-index: 10;
+    
+    /* Tamanho e forma */
+    width: 5vw;
+    height: 5vw;
+    min-width: 40px;
+    min-height: 40px;
+    max-width: 80px;
+    max-height: 80px;
+    font-size: 2vw;
+    font-weight: bold;
+    text-align: center;
+    line-height: 5vw; /* Centraliza verticalmente o texto */
+    
+    /* Estilo */
+    background: linear-gradient(135deg, #9c3bf6, #070038);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Efeito ao passar o mouse */
+body.layout-jogo #helpbutton:hover {
+    background: linear-gradient(135deg, #2563eb, #1e3a8a);
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+}

@@ -1,0 +1,187 @@
+@keyframes estrelasEmMovimento {
+  0% {
+    background-position: center 0;
+  }
+  100% {
+    background-position: center 1000px;
+  }
+}
+html.layout-aprendizado,
+body.layout-aprendizado {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("images/space.jpg");
+  background-size: cover;
+  background-repeat: repeat-y;
+  background-position: center center;
+  background-attachment: fixed;
+  animation: estrelasEmMovimento 40s linear infinite;
+}
+body.layout-aprendizado #jogar-screen,
+body.layout-aprendizado #tela-inicial,
+body.layout-aprendizado #discussion-screen,
+body.layout-aprendizado #matrix-screen,
+body.layout-aprendizado #fim-screen{
+  display: none;
+}
+body.layout-aprendizado #aprendizado-screen {
+  display: flex;
+}
+
+#aprendizado-screen {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  min-height: 100vh;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  color: white;
+  font-family: "Orbitron", sans-serif;
+}
+
+#aprendizado-screen .conteudo-texto {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 800px;
+  width: 100%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+   margin-left: 0px;
+}
+
+#aprendizado-screen h1 {
+  margin-top: 0;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+#aprendizado-screen .textoP {
+  margin: 10px 0;
+  font-size: 1.1em;
+  line-height: 1.6em;
+}
+#aprendizado-screen #primeiroP {
+  color: antiquewhite;
+}
+
+#aprendizado-screen #botaoAprendizado {
+  margin-top: 30px;
+  padding: 10px 25px;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 8px;
+  background-color: #00bfff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#botaoAprendizado:hover {
+  background-color: #009acd;
+}
+#aprendizado-screen .imagemExp{
+  display: block;
+  margin: 20px auto;
+  filter: invert(1);
+}
+
+#background-elements {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none; /* para não interferir nos cliques */
+  overflow: hidden;
+  z-index: -1; /* atrás de tudo */
+}
+
+.asteroide, .cometa, .planeta {
+  position: absolute;
+  max-width: 150px;
+  opacity: 0.7;
+  /* Ajuste tamanho e opacidade conforme desejar */
+}
+
+/* Animações exemplo: */
+@keyframes moverAsteroide {
+  0% {
+    transform: translateX(-200px) translateY(50vh) rotate(0deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(60vh) rotate(360deg);
+  }
+}
+
+@keyframes moverCometa {
+  0% {
+    transform: translateX(110vw) translateY(30vh);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-200px) translateY(40vh);
+    opacity: 0;
+  }
+}
+
+@keyframes girarPlaneta {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Aplica as animações: */
+.asteroide {
+  top: 0%;
+  right: 0%;
+  animation: moverAsteroide 40s linear infinite;
+}
+
+.cometa {
+  top: 0%;
+  animation: moverCometa 25s linear infinite;
+}
+
+.planeta {
+  bottom: 10%;
+  right: 10%;
+  animation: girarPlaneta 60s linear infinite;
+  opacity: 0.5;
+}
+
+
+
+#alex {
+  flex-shrink: 0;
+       /* não deixa a imagem encolher demais */
+  width: 20%;
+  height: 70%; 
+  position: fixed;
+  left: 20px;  
+  top: 10%;
+
+  opacity: 0.7;
+  margin-left:0px;
+}
+
+
+/* Opcional: esconde em telas pequenas */
+@media (max-width: 900px) {
+  #alex {
+    display: none;
+  }
+}

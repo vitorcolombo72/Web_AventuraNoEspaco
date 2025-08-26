@@ -1,0 +1,81 @@
+body{
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("images/space.jpg");
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  animation: estrelasEmMovimento 40s linear infinite;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  flex-direction: column;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+a:hover {
+  opacity: 0.7;
+}
+nav {
+  display: flex;
+  justify-content: center; /* ou space-around */
+  align-items: center;
+  background: #23232e;
+  height: 8vh;
+  width: 100vw;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex; /* <- AQUI é o que faz os <li> ficarem lado a lado */
+  padding: 0;
+  margin: 0;
+}
+
+.nav-list li {
+  letter-spacing: 3px;
+  margin-left: 32px;
+}
+#wrapp{
+    border: 1px solid white;
+    border-radius: 10px;
+    margin-right: 20vh;
+    margin-left: 20vh;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#myh1{
+    text-align:center;
+    color: wheat;
+    font-size: 5vh;
+}
+#comojogarimage{
+    width: 30vw;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+.textoexp{
+    text-align: center;
+}
+#whitep{
+    color: white;
+}
+#redp{
+    color:red;
+}
+#yellowp{
+    color:yellow;
+}
+#greenp{
+    color:green;
+}

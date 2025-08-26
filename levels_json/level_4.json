@@ -1,0 +1,15 @@
+{
+	"level_no": 4,
+	"phases": [
+		[
+			{
+				"planet_name": "venus",
+				"mode": 0
+			},
+			{
+				"planet_name":"terra",
+				"mode": 2
+			}
+		]
+	]
+}

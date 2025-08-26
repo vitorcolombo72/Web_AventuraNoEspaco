@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0"
+    />
+    <title>Uma Aventura no Espaço</title>
+    <link
+      id="-gd-engine-icon"
+      rel="icon"
+      type="image/png"
+      href="index.icon.png"
+    />
+    <link rel="apple-touch-icon" href="index.apple-touch-icon.png" />
+    <link rel="stylesheet" href="tela-inicial.css" id="tela-inicial-css" />
+    <link rel="stylesheet" href="style.css" id="stylecss" />
+    <link rel="stylesheet" href="jogar.css" id="jogar-screen-css" />
+    <link rel="stylesheet" href="aprendizado.css" id="aprendizado-screen.css" />
+    <link rel="stylesheet" href="matrix.css" id="matrix-screen.css" />
+    <link rel="stylesheet" href="fim.css" id="fim-screen.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="discussion.css" id="discussion-screen-css" />
+  </head>
+  <body>
+    <div id="tela-inicial">
+      <div id="status">
+        <img
+          id="status-splash"
+          class="show-image--true fullsize--true use-filter--true"
+          src="index.png"
+          alt=""
+        />
+        <progress id="status-progress"></progress>
+        <div id="status-notice"></div>
+      </div>
+
+      <nav>
+        <ul class="nav-list">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="sobre.html" >Sobre o Jogo</a></li>
+          <li><a href="https://wp.ufpel.edu.br/pensamentocomputacional/pt/" target="_blank">Exp-PC</a></li>
+          <li><a href="https://wp.ufpel.edu.br/pensamentocomputacional/contato/" target="_blank">Contato</a></li>
+          <li><a href="comojogar.html">Como Jogar</a></li>
+        </ul>
+      </nav>
+      <div class="content">
+        <h1>Pronto para uma aventura espacial inesquecível? <br /></h1>
+        <p class="par">
+          Auxilie Alex nessa aventura interplanetar desafiadora! <br />
+          Viaje entre planetas, colete materiais e aprenda muito! <br />
+          Se você está pronto, aperte o botão Jogar e vamos lá!
+        </p>
+        <button id="buttonT" type="submit">Jogar!</button>
+      </div>
+    </div>
+
+    <div id="discussion-screen">
+      <div class="computer-wrapper">
+        <img src="images/Window03.png" id="computerimg" />
+        <h1>SALA DE COMANDO</h1>
+        <img src="images/Look.png" id="astronautimg" />
+        <button id="botaoAvancaTexto">Avançar</button>
+        <div class="text"></div>
+      </div>
+    </div>
+    <div id="jogar-screen">
+      <h1 id="h1-obj">Planeta Objetivo:</h1>
+      <button id="helpbutton" onclick="window.open('comojogar.html')">?</button>
+      <canvas id="canvas">
+        Your browser does not support the canvas tag.
+      </canvas>
+
+      <noscript> Your browser does not support JavaScript. </noscript>
+    </div>
+    <div id="aprendizado-screen">
+      <div id="background-elements">
+        <img src="images/asteroid.png" class="asteroide" alt="Asteroide" />
+        <img src="images/comet.png" class="cometa" alt="Cometa" />
+        <img src="images/planet.png" class="planeta" alt="Planeta" />
+      </div>
+
+      <img id="alex" src="images/fim2.png" alt="" />
+      <div class="conteudo-texto">
+        <h1 id="tituloH1"></h1>
+        <p class="textoP" id="primeiroP"></p>
+        <p class="textoP"></p>
+        <img class="imagemExp" src="" alt="Imagem 1" />
+        <p class="textoP"></p>
+        <img class="imagemExp" src="" alt="Imagem 2" />
+        <p class="textoP"></p>
+        <img class="imagemExp" src="" alt="" />
+        <p class="textoP"></p>
+        <img class="imagemExp" src="" alt="" />
+        <p class="textoP"></p>
+        <img class="imagemExp" src="" alt="" />
+        <p class="textoP"></p>
+        <button id="botaoAprendizado">Entendi!</button>
+      </div>
+    </div>
+    <div id="matrix-screen">
+      <div id="left-text">
+        <h1 id="title">Bem-vindo ao Laboratório dos Planetas!</h1>
+        <p class="textpclass">
+          Agora que você viajou pelos planetas e coletou várias pedras
+          preciosas, é hora de organizar tudo em uma matriz. Uma matriz é como
+          uma grande tabela usada na computação.
+        </p>
+        <ul>
+          <li>Cada linha representa um planeta.</li>
+          <li>
+            Cada coluna representa um tipo de pedra preciosa que você encontrou.
+          </li>
+        </ul>
+        <p class="textpclass">
+          Durante nossas viagens, coletamos muitas pedras preciosas! Você foi
+          incrível! No compartimento do nosso foguete, nós armazenamos várias
+          amostras de pedras preciosas do espaço!
+        </p>
+        <p class="textpclass">
+          Todas as pedras que coletamos durante nossas viagens estão aparecendo
+          na direita, em baixo da tabela. Agora, sua missão é preencher os
+          espaços da matriz com os números que mostram quantas pedras você
+          coletou em cada planeta.
+        </p>
+        <ul>
+          <li>
+            Se você coletou 3 Ametistas em Mercúrio, vá até a linha do Mercúrio
+            e a coluna da Ametista, e escreva 3.
+          </li>
+          <li>
+            Se não coletou nenhuma pedra daquele tipo em algum planeta, deixe 0
+            no espaço.
+          </li>
+        </ul>
+        <p class="textpclass">
+          Quando terminar, a matriz vai mostrar um mapa organizado de tudo que
+          você encontrou, assim como um cientista organiza os dados de um
+          experimento no laboratório.
+        </p>
+        <p class="textpclass">
+          <strong>Dica de Cientista:</strong> Quando clicar em enviar, os itens
+          que estão corretos aparecerão em verde. Os itens que estiverem
+          errados, aparecerão em vermelho!
+        </p>
+      </div>
+      <div id="side-panel">
+        <div id="inputs-container"></div>
+        <p id="displayrock"></p>
+        <button id="verifybutton">Enviar!</button>
+      </div>
+    </div>
+    <div id="fim-screen">
+      <img src="images/fim2.png" id="alexbig" alt="" />
+      <div id="parag">
+        <h1 id="parabensh1">Parabéns! Você concluiu a aventura!</h1>
+        <p class="fimp">
+          Parabéns, astronauta! 🚀 Você completou toda a missão com coragem e
+          inteligência. Juntos, viajamos pelo espaço, exploramos planetas
+          desconhecidos e resolvemos desafios incríveis usando raciocínio e
+          muita imaginação!
+        </p>
+
+        <p class="fimp">
+          Durante essa aventura, você aprendeu que os
+          <strong>vetores</strong> são como listas que usamos na programação. No
+          jogo, eles guardaram todas as rotas da nave, posição por posição,
+          ajudando a calcular o caminho mais rápido entre os planetas. Assim
+          como no código, cada número do vetor tem um lugar certo, que podemos
+          acessar sempre que precisamos.
+        </p>
+
+        <p class="fimp">
+          E as <strong>matrizes</strong> também foram nossas aliadas! Elas
+          funcionam como tabelas em programação, onde conseguimos armazenar
+          várias informações ao mesmo tempo. Durante as missões, usamos as
+          matrizes para guardar as pedras coletadas em cada planeta, registrando
+          o tipo e a quantidade em cada linha e coluna. É como ter um inventário
+          inteligente que o computador entende direitinho! 🌌
+        </p>
+        <button id="telainicialvoltar" onclick="window.location.reload()">Voltar para tela inicial</button>
+      </div>
+    </div>
+    <script src="mycode.js" type="module"></script>
+    <script src="index.js"></script>
+    <!-- Relacionado com o godot -->
+    <script src="gamemain.js"></script>
+    <!-- CHAMA O JOGO GODOT-->
+  </body>
+</html>

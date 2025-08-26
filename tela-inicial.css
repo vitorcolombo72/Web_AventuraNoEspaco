@@ -1,0 +1,97 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+body.layout-inicial{
+  height: 100vh;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("images/space2.jpg");
+
+  background-size: cover; /* cobre toda a área */
+  background-repeat: no-repeat; /* evita repetição */
+  background-position: center center; /* centraliza a imagem */
+  background-attachment: fixed;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+a:hover {
+  opacity: 0.7;
+}
+nav {
+  display: flex;
+  justify-content: center; /* ou space-around */
+  align-items: center;
+  background: #23232e;
+  height: 8vh;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex; /* <- AQUI é o que faz os <li> ficarem lado a lado */
+  padding: 0;
+  margin: 0;
+}
+
+.nav-list li {
+  letter-spacing: 3px;
+  margin-left: 32px;
+}
+#buttonT{
+    width: 12vw;
+    height:8vh;
+    background: orange;
+    border:2px solid orange;
+    margin-top:10px;
+    margin-left: 10px;
+    color: white;
+    font-size: 1.5vw;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-radius: 10px
+    ;
+}
+#buttonT:focus{
+    outline: none;
+}
+
+.content{
+    width: auto;
+    height: auto;
+    margin-left: 80px;
+    color:white;
+    position: relative;
+}
+.content .par{
+    padding-left: 20px;
+    padding-bottom: 20px;
+    font-family: Arial;
+    letter-spacing: 1.2px;
+    line-height: 30px;
+}
+.content h1{
+    font-family: 'Times New Roman';
+    font-size: 30px;
+    margin-top: 9%;
+    padding-left: 20px;
+    letter-spacing: 2px;
+}
+body.layout-inicial #discussion-screen,
+body.layout-inicial #jogar-screen,
+body.layout-inicial #aprendizado-screen,
+body.layout-inicial #matrix-screen,
+body.layout-inicial #fim-screen{
+  display: none;
+}
+body.layout-inicial #tela-inicial{
+  display: block;
+}

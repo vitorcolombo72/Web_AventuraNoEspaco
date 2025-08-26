@@ -1,0 +1,191 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+body.layout-discussao{
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("images/space.jpg");
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center center;
+}
+body.layout-discussao #discussion-screen {
+  display: block;
+}
+body.layout-discussao #jogar-screen,
+body.layout-discussao #tela-inicial,
+body.layout-discussao #aprendizado-screen,
+body.layout-discussao #matrix-screen,
+body.layout-discussao #fim-screen
+{
+    display: none;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.computer-wrapper {
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.1);
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 0;
+  height: auto;
+}
+
+.computer-wrapper::after,
+.computer-wrapper::before {
+  content: "";
+  position: absolute;
+  height: 86.5%;
+  width: 100%;
+  background-image: conic-gradient(from var(--angle), transparent 90%, blue,#330066,darkblue);
+  top: 14%;
+  left: 0%;
+  z-index: -2;
+  animation: 20s spin linear infinite;
+}
+.computer-wrapper::before {
+  filter: blur(1.5rem);
+  opacity: 0.5;
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
+#botaoAvancaTexto {
+  font-size: xx-large;
+  position: absolute;
+  display: block;
+  height: 15vh;
+  width: 20vw;
+  top: 75%;
+  left: 30%;
+  border: none;
+  outline: none;
+  color: #fff;
+  cursor: pointer;
+  z-index: 0;
+  border-radius: 12px;
+}
+#botaoAvancaTexto::after {
+  position: absolute;
+  content: "";
+  text-align: center;
+  font-family: "Orbitron", sans-serif;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-color: #330066;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+#botaoAvancaTexto::before {
+  content: "";
+  font-family: "Orbitron", sans-serif;
+  background: linear-gradient(45deg, blue, purple, black, #330066);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  filter: blur(5px);
+  animation: glowing 30s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+  opacity: 0.7;
+}
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+#computerimg {
+  background-color: rgba(255,255,255,0.03);
+  display: block;
+  opacity: 1;
+  height: 100vh;
+  margin-top: -10%;
+}
+#astronautimg {
+  position: absolute;
+  height: 20vh;
+  top: 74%;
+  left: 80%;
+}
+.text {
+  font-family: "Orbitron", sans-serif;
+  position: absolute;
+  top: 25%; /* ajuste aqui */
+  left: 1.5%; /* ajuste aqui */
+  font-size: clamp(1px,3vh,24px);
+  width: 93%;
+  color: whitesmoke;
+  text-decoration: dotted;
+  padding: 1em;
+  border-radius: 0.5em;
+  line-height: 1.2em;
+  opacity: 1;
+  z-index: 2;
+}
+.computer-wrapper h1 {
+  font-family: "Orbitron", sans-serif;
+  position: absolute;
+  top: 13%; /* ajuste aqui */
+  left: 31%; /* ajuste aqui */
+  font-size: 4vh;
+  width: 93%;
+  color: white;
+  opacity: 1;
+}
+
+.text span {
+  opacity: 0;
+}
+.text span.revealed {
+  opacity: 1;
+  animation: glow-in 0.5s ease-in;
+}
+
+@keyframes glow-in {
+  from {
+    text-shadow: 0 0 0 transparent;
+    color: transparent;
+  }
+  to {
+    text-shadow: 0 0 5px #00f0ff, 0 0 15px #00f0ff;
+    color: #00f0ff;
+  }
+}
+.text span.green {
+  color: #27ae60;
+}
+.text span.red {
+  color: #ff0000;
+}

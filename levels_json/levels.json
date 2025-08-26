@@ -1,0 +1,58 @@
+[
+	{
+		"level_no": 1,
+		"scene_path": "res://scenes/levels/level_1.tscn"
+	},
+
+	{
+		"level_no": 2,
+		"scene_path": "res://scenes/levels/level_1.tscn"
+	},
+
+	{
+		"level_no": 3,
+		"scene_path": "res://scenes/levels/level_1.tscn"
+	},
+
+	{
+		"level_no": 4,
+		"scene_path": "res://scenes/levels/level_1.tscn"
+	},
+	
+	{
+		"level_no": 5,
+		"scene_path": "res://scenes/levels/level_1.tscn"
+	},
+	{
+		"level_no": 6,
+		"scene_path": "res://scenes/levels/level_1.tscn"
+	},
+	{
+		"level_no": 7,
+		"scene_path": "res://scenes/levels/level_1.tscn"
+	},
+	{
+		"level_no": 8,
+		"scene_path": "res://scenes/levels/level_3.tscn"
+	},
+	{
+		"level_no": 9,
+		"scene_path": "res://scenes/levels/level_3.tscn"
+	},
+	{
+		"level_no": 10,
+		"scene_path": "res://scenes/levels/level_3.tscn"
+	},
+	{
+		"level_no": 11,
+		"scene_path": "res://scenes/levels/level_3.tscn"
+	},
+	{
+		"level_no": 12,
+		"scene_path": "res://scenes/levels/level_3.tscn"
+	},
+	{
+		"level_no": 13,
+		"scene_path": "res://scenes/levels/level_3.tscn"
+	}
+]

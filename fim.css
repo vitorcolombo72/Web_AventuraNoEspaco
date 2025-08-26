@@ -1,0 +1,68 @@
+body.layout-fim #discussion-screen,
+body.layout-fim #tela-inicial,
+body.layout-fim #aprendizado-screen,
+body.layout-fim #jogar-screen,
+body.layout-fim #matrix-screen{
+    display: none;
+}
+
+html.layout-fim #fim-screen,
+body.layout-fim #fim-screen{
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("images/space.jpg");
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  animation: estrelasEmMovimento 40s linear infinite;
+  display: flex;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+#alexbig{
+    padding-top: 40px;
+    height: 90vh;
+    opacity: 0.8;
+}
+#parag{
+    padding-left: 5vh;
+    padding-right: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.fimp{
+    text-align: center;
+    color: yellow;
+    font-family: "Orbitron", sans-serif;
+    font-size: clamp(4px, 2.5vh, 24px);
+}
+#parabensh1 {
+    text-align: center;
+    color: wheat;
+    font-size: 4.5vh;
+}
+#telainicialvoltar{
+    align-self: center;
+    margin-left: 30px;
+    margin-top: 30px;
+    height: 10vh;
+    width: 18vw;
+    font-size: 1vw;
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(135deg, #9c3bf6, #070038);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
