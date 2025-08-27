@@ -11,47 +11,46 @@ document.getElementById("buttonT").addEventListener("click", function () {
 // Cria um objeto global para o Godot se comunicar com o JS
 window.godotBridge = {
   callback: null,
-  _pendingResolve: null, // 🔸 Adiciona isso
+  _pendingResolve: null,
 
   test: function (data) {
     console.log("Mensagem recebida do Godot:", data);
-
-    // 🔸 Aqui resolvemos a promessa, se alguém estiver esperando
     if (this._pendingResolve) {
       this._pendingResolve(data);
       this._pendingResolve = null;
     }
   },
 
-  // Godot chama essa função para registrar a callback
   setCallback: function (cb) {
     this.callback = cb;
     console.log("Callback setada no JS");
   },
 
-  // JS chama essa função para enviar mensagem para o Godot e esperar resposta
-  sendMessageAndWait: function (msg) {
+  sendMessageAndWait: async function (msg) {
+    // espera até que a callback esteja definida
+    await this._waitForCallback();
+
     return new Promise((resolve) => {
       this._pendingResolve = resolve;
-
-      if (this.callback) {
-        this.callback(msg);
-      } else {
-        console.warn("Callback não definida ainda");
-        resolve(null);
-      }
+      this.callback(msg);
     });
   },
 
-  // Se quiser manter também a versão antiga:
-  sendMessageToGodot: function (msg) {
-    if (this.callback) {
-      this.callback(msg);
-    } else {
-      console.warn("Callback não definida ainda");
-    }
+  _waitForCallback: function () {
+    return new Promise((resolve) => {
+      if (this.callback) {
+        resolve();
+      } else {
+        const interval = setInterval(() => {
+          if (this.callback) {
+            clearInterval(interval);
+            resolve();
+          }
+        }, 50); // checa a cada 50ms
+      }
+    });
   },
-};
+}
 
 let currentPhase = null;
 // loop que controla todas fases e aulas
@@ -64,6 +63,7 @@ let contLearn = 0;
 async function startGame() {
   console.log("Iniciando Jogo!...");
   //await displayLearnPage(aprendizadoTexto[3],aprendizadoImgSrc[3]);
+  
   for (const aula of aulas) {
     for (const fase of aula.fases) {
       console.log(fase.texto);
