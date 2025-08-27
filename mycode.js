@@ -13,6 +13,7 @@ window.godotBridge = {
   callback: null,
   _pendingResolve: null,
 
+  // Função que o Godot chama para enviar mensagens ao JS
   test: function (data) {
     console.log("Mensagem recebida do Godot:", data);
     if (this._pendingResolve) {
@@ -21,36 +22,27 @@ window.godotBridge = {
     }
   },
 
+  // Godot chama essa função para registrar a callback
   setCallback: function (cb) {
     this.callback = cb;
     console.log("Callback setada no JS");
   },
 
-  sendMessageAndWait: async function (msg) {
-    // espera até que a callback esteja definida
-    await this._waitForCallback();
-
+  // JS chama para enviar mensagem e esperar resposta
+  sendMessageAndWait: function (msg) {
     return new Promise((resolve) => {
       this._pendingResolve = resolve;
-      this.callback(msg);
-    });
-  },
 
-  _waitForCallback: function () {
-    return new Promise((resolve) => {
+      // 🔹 Se a callback estiver pronta, envia a mensagem
       if (this.callback) {
-        resolve();
+        this.callback(msg);
       } else {
-        const interval = setInterval(() => {
-          if (this.callback) {
-            clearInterval(interval);
-            resolve();
-          }
-        }, 50); // checa a cada 50ms
+        console.warn("Callback ainda não definida. Esperando Godot carregar...");
+        // não resolvemos a Promise aqui! Ela só será resolvida quando Godot chamar test()
       }
     });
-  },
-}
+  }
+};
 
 let currentPhase = null;
 // loop que controla todas fases e aulas
@@ -196,9 +188,7 @@ if (!listenerAttached) {
 
 async function playLevel() {
   activateGameLayout();
-  if (!godotBridge) {
-    console.log("nao foi!!");
-  }
+  await waitForGodotReady();
   const resposta = await godotBridge.sendMessageAndWait(currentLevel); // 🔸 aguarda Godot
   console.log("Resposta recebida do Godot:", resposta);
   phaseCompletedResolver();
@@ -354,4 +344,18 @@ async function displayFimPage(){
     
   })
   
+}
+
+async function waitForGodotReady() {
+  if (window.godotBridge && window.godotBridge.callback) return; // já pronto
+
+  return new Promise((resolve) => {
+    const check = setInterval(() => {
+      if (window.godotBridge && window.godotBridge.callback) {
+        clearInterval(check);
+        console.log("Godot pronto!");
+        resolve();
+      }
+    }, 50); // checa a cada 50ms
+  });
 }
