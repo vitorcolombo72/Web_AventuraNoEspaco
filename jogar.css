@@ -5,6 +5,7 @@ body.layout-jogo #jogar-screen #canvas{
     position: relative !important;
     align-items: center;
     justify-content: center;
+    z-index: 1;
 }
 body.layout-jogo #discussion-screen,
 body.layout-jogo #tela-inicial,
@@ -83,4 +84,5 @@ body.layout-jogo #helpbutton:hover {
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
+    z-index: 0;
 }
